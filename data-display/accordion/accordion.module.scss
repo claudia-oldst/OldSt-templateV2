@@ -1,0 +1,9 @@
+.accordion {
+    &__trigger {
+        @apply flex w-full justify-between items-center px-4 py-2;
+    }
+    
+    &__panel {
+        @apply px-4 pt-4 pb-2;
+    }
+}

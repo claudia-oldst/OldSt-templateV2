@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas } from '@storybook/blocks';
+import * as Toast from './toast.stories';
+
+<Meta title="Components/Data Display/Toast" of={Toast} />
+
+# Toast
+
+This compnent will be used for the toast
+
+<Canvas>
+  <Story of={Toast.Info} />
+  <Story of={Toast.Success} />
+  <Story of={Toast.Error} />
+  <Story of={Toast.Warning} />
+</Canvas>

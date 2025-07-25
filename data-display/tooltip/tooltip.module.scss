@@ -1,0 +1,9 @@
+.tooltip {
+    &-wrapper {
+        @apply inline-flex relative;
+    }
+
+    &-content {
+        @apply bg-N700 rounded-lg text-N0 text-sm leading-6 px-4 py-2 max-w-[232px];
+    }
+}

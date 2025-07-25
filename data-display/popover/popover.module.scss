@@ -1,0 +1,9 @@
+.popover {
+    &__panel {
+        @apply rounded border m-0 border-transparent absolute scrollbar-hide z-50 drop-shadow-elevation-04;
+
+        &-content {
+            @apply m-2 border border-N300 rounded bg-N0 py-2;
+        }
+    }
+}

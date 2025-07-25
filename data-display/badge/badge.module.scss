@@ -1,0 +1,76 @@
+.badge {
+    font-size: 0.625rem;
+    line-height: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.15px;
+    @apply px-2 py-0.5;
+
+    &.--md {
+        font-size: 0.875rem;
+        line-height: 1.125rem;
+    }
+
+    &.--lg {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    &--status {
+        @apply bg-success400 h-2 w-2 rounded-full;
+        
+        &.error {
+            @apply bg-error400;
+        }
+
+        &.neutral {
+            @apply bg-N500;
+        }
+
+        &.--md {
+            @apply h-3 w-3;
+        }
+    
+        &.--lg {
+            @apply h-4 w-4;
+        }
+    }    
+    
+    &.cyan, &--status.cyan {
+        @apply bg-CY100 text-CY600;
+    }
+    
+    &.cornflower, &--status.cornflower {
+        @apply bg-W100 text-W600;
+    }
+    
+    &.lightGreen, &--status.lightGreen {
+        @apply bg-L100 text-L600;
+    }
+    
+    &.neutral {
+        @apply bg-N100 text-N600;
+    }
+    
+    &.violet, &--status.violet {
+        @apply bg-V100 text-V600;
+    }
+    
+    &.turquoise, &--status.turquoise {
+        @apply bg-T100 text-T600;
+    }
+    
+    &.orange, &--status.orange {
+        @apply bg-O100 text-O600;
+    }
+    
+    &.pink, &--status.pink {
+        @apply bg-P100 text-P600;
+    }
+    
+    &.error {
+        @apply bg-R100 text-R600;
+    }
+}

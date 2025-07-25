@@ -1,0 +1,27 @@
+.toast {
+    @apply w-[27rem] py-3 px-4 gap-2 flex rounded border;
+
+    &__message {
+        flex: 1
+    }
+
+    &__close {
+        cursor: pointer;
+    }
+
+    &--info {
+        @apply bg-info50 border-info100;
+    }
+
+    &--error {
+        @apply bg-error50 border-error100;
+    }
+
+    &--success {
+        @apply bg-success50 border-success100;
+    }
+
+    &--warning {
+        @apply bg-warning50 border-warning100;
+    }
+}
