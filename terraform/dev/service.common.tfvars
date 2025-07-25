@@ -1,0 +1,12 @@
+environment= "dev"
+project = "saxon"
+region = "eu-west-2"
+lambda_role_arn = "arn:aws:iam::528757825223:role/saxon-dev-lambda-role"
+lambda_role_name= "saxon-dev-lambda-role"
+lambda_vpc_id = "vpc-0c076ce6b8addc0b5"
+lambda_private_subnet_ids=["subnet-03216aed997cfe5c9","subnet-0fb1c2aee28012d8a"]
+lambda_memory_size = 128
+lambda_timeout = 900
+lambda_runtime = "nodejs20.x"
+lambda_lambda_outbound_security_group_ids = ["sg-00ddbf57a2ceb4f26"]
+aws_profile = "saxon-dev"
