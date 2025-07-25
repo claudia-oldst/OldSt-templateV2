@@ -1,0 +1,20 @@
+{
+    "name": "aws-ses-lib",
+    "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/backend/aws-services/aws-ses-lib/src",
+    "projectType": "library",
+    "targets": {
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "libs/backend/aws-services/aws-ses-lib/jest.config.ts"
+            }
+        }
+    },
+    "tags": []
+}
