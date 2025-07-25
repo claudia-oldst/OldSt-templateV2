@@ -1,0 +1,134 @@
+/* TODO: clean input styling*/
+
+.input-wrapper .input-field {
+    @apply border border-N600 rounded px-3 py-2 relative flex items-center h-12 gap-3.5 text-N600;
+}
+.input-wrapper {
+    @apply relative;
+
+    &.--textarea {
+        .input-field {
+            height: unset !important;
+            @apply items-start;
+        }
+        .input {
+            @apply py-0.5;
+        }
+        .input__icon {
+            @apply py-1;
+        }
+    }
+}
+.input-wrapper .input {
+    @apply text-lg leading-6 text-N800 w-full border-none outline-none;
+}
+
+
+/* Label and Placeholder  */
+.input-wrapper .input ::placeholder {
+    @apply text-N600;
+}
+.input-wrapper .label {
+    @apply absolute -mx-1 px-1 text-lg text-N600 z-10 pointer-events-none transition-all;
+    background: white;
+}
+.input-wrapper .input:not(:placeholder-shown) + .label {
+    @apply text-sm -top-2;
+}
+.input-wrapper .input::placeholder {
+    @apply opacity-0;
+}
+.input-wrapper .input + .label-with-placeholder {
+    @apply text-sm -top-2;
+}
+.input-wrapper .input:has(+ .label-with-placeholder)::placeholder  {
+    @apply opacity-100;
+}
+.input-wrapper .input:focus-within + .label {
+    @apply text-sm -top-2 transition-all;
+}
+
+/* Label with prefix icon */
+.input-wrapper .label-with--prefixIcon {
+    @apply ml-7;
+}
+.input-wrapper .input:not(:placeholder-shown) + .label-with--prefixIcon {
+    @apply text-sm ml-0 -top-2;
+}
+.input-wrapper .input:focus-within + .label-with--prefixIcon {
+    @apply ml-0;
+}
+.input-wrapper .input + .label-with--prefixIcon.label-with-placeholder {
+    @apply text-sm -top-2 ml-0;
+}
+
+
+/* Focused */
+.input-wrapper .input:focus-within + .label {
+    @apply text-primary500;
+}
+.input-wrapper .input-field:has(> .input:focus-within){
+    @apply border-primary500 transition-all duration-300;
+}
+.input-wrapper.input-error .input:focus-within {
+    @apply text-primary500;
+}
+/*  */
+
+.input-wrapper .prefixIcon {
+    @apply mr-3;
+}
+
+/*  */
+
+.input-wrapper .helper-text {
+    @apply text-sm text-N700 ml-[1.208rem] mt-1;
+    user-select: none;
+}
+
+/* Variant Error */
+
+.input-wrapper.input-error .input-field,
+.input-wrapper.input-error .input-field:has(> .input:focus-within)
+{
+    @apply  border-error500 duration-300 transition-all;
+}
+
+.input-wrapper.input-error .label,
+.input-wrapper.input-error .helper-text,
+.input-wrapper.input-error .input:focus-within + .label
+{
+    @apply  text-error500 duration-300 transition-all;
+}
+
+
+/* Variant Disabled */
+.input-wrapper.input-error .input-disabled {
+    @apply border border-N500 text-error500;
+}
+.input-wrapper.input-disabled .label,
+.input-wrapper.input-disabled .input-field .input{
+    @apply  text-N500 cursor-not-allowed;
+}
+
+.input-wrapper.input-disabled .helper-text{
+    @apply  text-N600;
+}
+
+.input-wrapper.input-disabled .input-field:has(> .input:focus-within){
+    @apply border-N600;
+}
+.input-wrapper.input-disabled .input:focus-within + .label {
+    @apply text-N500;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.input[type=number] {
+  -moz-appearance: textfield;
+}

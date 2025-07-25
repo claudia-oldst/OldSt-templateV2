@@ -1,0 +1,15 @@
+.modal {
+    @apply relative z-10;
+
+    &__backdrop {
+        @apply fixed inset-0 bg-N900 bg-opacity-25;
+    }
+
+    &__content {
+        @apply w-full max-w-2xl transform overflow-hidden rounded-lg bg-N0 text-center align-middle shadow-xl transition-all;
+
+        &.-withGradientBg {
+            background: linear-gradient(180deg, #E9F6F4 0%, rgba(239, 248, 247, 0.58) 21.99%, rgba(255, 255, 255, 0.2) 49.9%, #FFFFFF 100%), #FFFFFF !important;
+        }
+    }
+}

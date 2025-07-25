@@ -1,0 +1,7 @@
+.drawer {
+    @apply bg-N0 self-end h-full relative;
+
+    &__close {
+        @apply rounded-lg h-10 w-10 drop-shadow-elevation-03 bg-N100 cursor-pointer absolute top-12 right-12 p-2 text-N800 z-50;
+    }
+}

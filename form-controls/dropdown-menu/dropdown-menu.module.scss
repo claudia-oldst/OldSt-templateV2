@@ -1,0 +1,25 @@
+.dropdown-menu {
+    &__panel {
+        @apply rounded border m-0 border-transparent absolute scrollbar-hide z-50 drop-shadow-elevation-04 ;
+
+        &-content {
+            @apply m-2 border border-N300 rounded bg-N0 py-2 divide-y  divide-N100;
+        }
+
+        &-option {
+            @apply py-3 px-4 flex text-base items-center gap-2 min-w-[15rem];
+
+            &-icon {
+                @apply text-primary600;
+            }
+
+            &:hover, &.-active {
+                @apply bg-N75;
+            }
+
+            &.-selected, &:focus-within {
+                @apply bg-primary50;
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+
+.container {
+    display: flex;
+}
+
+.selected {
+    color: theme('colors.N800') !important;
+    background-color: theme('colors.primary50') !important;
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.selected.range-end.range-start {
+    border-radius: 50% !important;
+}
+
+.range-start {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.range-end > .calendar-day {
+    background-color: theme('colors.N0');
+    border: 1px solid var(--rdp-accent-color);
+    border-radius: 50%;
+}
+
+.range-start > .calendar-day {
+    color: #fff;
+    background-color: var(--rdp-accent-color);
+    border: 1px solid transparent;
+    border-radius: 50%;
+}
+
+.range-end {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+}
+
+.calendar__options {
+    @apply py-8 px-4 grid gap-2 border-r border-r-N400 mr-2 w-28;
+}

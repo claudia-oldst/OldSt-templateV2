@@ -1,0 +1,17 @@
+.dropdown-options {
+    &__content {
+        @apply rounded border border-N300 py-2 mt-2 absolute scrollbar-hide bg-N0 z-50 drop-shadow-elevation-03;
+
+        &-option {
+            @apply py-3 px-4 flex text-base cursor-default items-center gap-2 min-w-[15rem];
+
+            &.-selected {
+                @apply bg-primary50;
+            }
+
+            &:hover, &.-active {
+                @apply bg-N100;
+            }
+        }
+    }
+}
