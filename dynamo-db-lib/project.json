@@ -1,0 +1,20 @@
+{
+    "name": "backend-dynamo-db-lib",
+    "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/backend/dynamo-db-lib/src",
+    "projectType": "library",
+    "targets": {
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "libs/backend/dynamo-db-lib/jest.config.ts"
+            }
+        }
+    },
+    "tags": []
+}
