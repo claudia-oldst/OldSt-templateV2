@@ -1,0 +1,73 @@
+{
+    "name": "logging-service",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/logging-service/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nx/webpack:webpack",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "target": "node",
+                "compiler": "tsc",
+                "outputPath": "dist/apps/logging-service",
+                "main": "apps/logging-service/src/main.ts",
+                "tsConfig": "apps/logging-service/tsconfig.app.json",
+                "assets": ["apps/logging-service/src/assets"],
+                "webpackConfig": "apps/logging-service/webpack.config.js",
+                "generatePackageJson": true
+            },
+            "configurations": {
+                "development": {},
+                "production": {}
+            }
+        },
+        "build-serverless-files": {
+            "executor": "nx:run-commands",
+            "options": {
+                "cwd": "dist/apps/logging-service",
+                "commands": [
+                    {
+                        "command": "yarn install"
+                    },
+                    {
+                        "command": "cp  ../../../.env.{args.stage} ./.env"
+                    },
+                    {
+                        "command": "cp  ../../../serverless-files/serverless-logging-service.yml serverless.yml",
+                        "forwardAllArgs": false
+                    }
+                ],
+                "parallel": false
+            }
+        },
+        "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "logging-service:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "logging-service:build:development"
+                },
+                "production": {
+                    "buildTarget": "logging-service:build:production"
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "apps/logging-service/jest.config.ts"
+            }
+        }
+    },
+    "tags": []
+}

@@ -1,0 +1,73 @@
+{
+    "name": "cognito-custom-message",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/cognito-custom-message/src",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nx/webpack:webpack",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "target": "node",
+                "compiler": "tsc",
+                "outputPath": "dist/apps/cognito-custom-message",
+                "main": "apps/cognito-custom-message/src/main.ts",
+                "tsConfig": "apps/cognito-custom-message/tsconfig.app.json",
+                "assets": ["apps/cognito-custom-message/src/assets"],
+                "webpackConfig": "apps/cognito-custom-message/webpack.config.js",
+                "generatePackageJson": true
+            },
+            "configurations": {
+                "development": {},
+                "production": {}
+            }
+        },
+        "build-serverless-files": {
+            "executor": "nx:run-commands",
+            "options": {
+                "cwd": "dist/apps/cognito-custom-message",
+                "commands": [
+                    {
+                        "command": "yarn install"
+                    },
+                    {
+                        "command": "cp  ../../../.env.{args.stage} ./.env"
+                    },
+                    {
+                        "command": "cp  ../../../serverless-files/serverless-cognito-custom-message-service.yml serverless.yml",
+                        "forwardAllArgs": false
+                    }
+                ],
+                "parallel": false
+            }
+        },
+        "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "cognito-custom-message:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "cognito-custom-message:build:development"
+                },
+                "production": {
+                    "buildTarget": "cognito-custom-message:build:production"
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nx/eslint:lint",
+            "outputs": ["{options.outputFile}"]
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "apps/cognito-custom-message/jest.config.ts"
+            }
+        }
+    },
+    "tags": []
+}
