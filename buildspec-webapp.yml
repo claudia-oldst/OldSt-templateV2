@@ -1,0 +1,37 @@
+version: 0.2
+run-as: root
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+  pre_build:
+    commands:
+      - echo Installing source dependencies...
+      - npm install -g yarn
+      - yarn -v
+      - yarn install
+      - npm install -g env-cmd
+  build:
+    commands:
+      - echo Build started on `date`
+      - touch .env
+      - echo "DEFAULT_REGION=${AWS_REGION}" >> .env
+      - echo "AWS_SECRET_ID=${AWS_SECRET_ID}" >> .env
+      - npx env-cmd -f .env nx build web-app --skip-nx-cache
+      - docker build --no-cache  -t ${PROJECT_NAME}-${ENVIRONMENT}-${SERVICE_NAME} -f WebAppDockerfile .
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing image to ECR...
+      - aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+      - docker tag ${PROJECT_NAME}-${ENVIRONMENT}-${SERVICE_NAME}:latest ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${PROJECT_NAME}-${ENVIRONMENT}-${SERVICE_NAME}:latest
+      - docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${PROJECT_NAME}-${ENVIRONMENT}-${SERVICE_NAME}:latest
+      - echo Image pushed to ECR
+      - aws ecs update-service --cluster ${PROJECT_NAME}-${ENVIRONMENT}-${SERVICE_NAME}-cluster --service ${PROJECT_NAME}-${ENVIRONMENT}-${SERVICE_NAME} --force-new-deployment
+
+
+    
+artifacts:
+  files: imagedefinitions.json

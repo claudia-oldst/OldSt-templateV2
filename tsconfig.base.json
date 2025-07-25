@@ -1,0 +1,87 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "types": ["node", "Multer"],
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2017", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@auth-guard-lib": ["libs/backend/auth-guard-lib/src/index.ts"],
+            "@authentication-service-lib": [
+                "libs/backend/app-services/authentication-service-lib/src/index.ts"
+            ],
+            "@aws-s3-lib": [
+                "libs/backend/aws-services/aws-s3-lib/src/index.ts"
+            ],
+            "@aws-secret-manager-lib": [
+                "libs/backend/aws-services/aws-secret-manager-lib/src/index.ts"
+            ],
+            "@aws-ses-lib": [
+                "libs/backend/aws-services/aws-ses-lib/src/index.ts"
+            ],
+            "@aws-sqs-lib": [
+                "libs/backend/aws-services/aws-sqs-lib/src/index.ts"
+            ],
+            "@cognito-lib": ["libs/backend/cognito-lib/src/index.ts"],
+            "@core-lib": ["libs/backend/core-lib/src/index.ts"],
+            "@data-access/*": ["libs/data-access/src/*"],
+            "@dto": ["libs/dto/src/index.ts"],
+            "@dynamo-db-lib": ["libs/backend/dynamo-db-lib/src/index.ts"],
+            "@email-service-lib": [
+                "libs/backend/app-services/email-service-lib/src/index.ts"
+            ],
+            "@email-template-database-lib": [
+                "libs/backend/database-services/email-template-database-lib/src/index.ts"
+            ],
+            "@email-template-service-lib": [
+                "libs/backend/app-services/email-template-service-lib/src/index.ts"
+            ],
+            "@enum": ["libs/backend/enum/src/index.ts"],
+            "@file-service-lib": [
+                "libs/backend/app-services/file-service-lib/src/index.ts"
+            ],
+            "@log-database-lib": [
+                "libs/backend/database-services/log-database-lib/src/index.ts"
+            ],
+            "@log-service-lib": [
+                "libs/backend/app-services/log-service-lib/src/index.ts"
+            ],
+            "@message-queue-lib": [
+                "libs/backend/message-queue-lib/src/index.ts"
+            ],
+            "@prisma-db-lib": ["libs/backend/prisma-db-lib/src/index.ts"],
+            "@sqs-service-lib": ["libs/backend/sqs-service-lib/src/index.ts"],
+            "@ui": ["libs/ui/src/index.ts"],
+            "@ui-config/*": ["libs/ui-config/src/*"],
+            "@ui-types/*": ["libs/ui/src/types/*"],
+            "@ui/*": ["libs/ui/*"],
+            "@ui/styles": ["libs/ui/styles/index.scss"],
+            "@user-database-dynamodb-lib": [
+                "libs/backend/database-services/user-database-dynamodb-lib/src/index.ts"
+            ],
+            "@user-database-lib": [
+                "libs/backend/database-services/user-database-lib/src/index.ts"
+            ],
+            "@user-database-prisma-lib": [
+                "libs/backend/database-services/user-database-prisma-lib/src/index.ts"
+            ],
+            "@user-service-lib": [
+                "libs/backend/app-services/user-service-lib/src/index.ts"
+            ],
+            "@utils": ["libs/utils/src/index.ts"],
+            "@web-app/*": ["apps/web-app/*"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"],
+    "include": ["**/*.scss"]
+}
